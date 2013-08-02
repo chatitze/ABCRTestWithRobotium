@@ -63,6 +63,7 @@ public class BusinessCardActivityTest extends ActivityInstrumentationTestCase2<B
 		*/
 		
 		
+		
 		/*
 		int textNameId = com.birkbeck.dissertation.android.ocr.R.id.textName;
 		assertNotNull(businessCardActivity.findViewById(textNameId));
