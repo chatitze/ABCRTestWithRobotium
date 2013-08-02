@@ -1,5 +1,6 @@
 package com.birkbeck.dissertation.android.ocr.test;
 
+import com.birkbeck.dissertation.android.ocr.AndroidOCRActivity;
 import com.birkbeck.dissertation.android.ocr.BusinessCardActivity;
 import com.jayway.android.robotium.solo.Solo;
 
@@ -37,7 +38,30 @@ public class BusinessCardActivityTest extends ActivityInstrumentationTestCase2<B
 		boolean actual = solo.searchText("Capture image of a business card or " +
 						"select image from the gallery!");
 		//Assert that Text is found
-		assertEquals("Text not found", expected, actual);
+		assertEquals("Expected text not found", expected, actual);
+		
+		
+		// Searches for a button with the text in the current user interface 
+		actual = solo.searchButton(solo.getString(com.birkbeck.dissertation.android.ocr.R.string.takebutton_text), 1, true);
+		assertEquals("Expected 'Take photo' button is not found!", expected, actual);
+		
+		actual = solo.searchButton(solo.getString(com.birkbeck.dissertation.android.ocr.R.string.selectbutton_text), 1, true);
+		assertEquals("Expected 'Select photo' button is not found!", expected, actual);
+		
+		actual = solo.searchButton(solo.getString(com.birkbeck.dissertation.android.ocr.R.string.execbutton_text), 1, false);
+		assertEquals("Expected 'Execute OCR' button is not found!", expected, actual);
+		
+		
+		// Click a button which will start a new Activity
+		// clicks on a button with the "text" text 
+		// Here we use the ID of the string to find the right button
+		/*solo.clickOnButton(solo.getString(com.birkbeck.dissertation.android.ocr.R.string.takebutton_text));
+		
+		
+		solo.clickOnButton(solo.getString(com.birkbeck.dissertation.android.ocr.R.string.execbutton_text));
+		solo.assertCurrentActivity("Wrong activiy! Expected:AndroidOCRActivity", AndroidOCRActivity.class);
+		*/
+		
 		
 		/*
 		int textNameId = com.birkbeck.dissertation.android.ocr.R.id.textName;
