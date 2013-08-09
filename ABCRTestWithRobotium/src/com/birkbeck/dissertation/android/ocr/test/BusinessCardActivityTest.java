@@ -51,6 +51,8 @@ public class BusinessCardActivityTest extends ActivityInstrumentationTestCase2<B
 		actual = solo.searchButton(solo.getString(com.birkbeck.dissertation.android.ocr.R.string.execbutton_text), 1, false);
 		assertEquals("Expected 'Execute OCR' button is not found!", expected, actual);
 		
+		solo.goBack();
+		solo.goBackToActivity("BusinessCardActivity");
 		
 		// Click a button which will start a new Activity
 		// clicks on a button with the "text" text 
